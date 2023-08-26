@@ -1,0 +1,4 @@
+<form class="form-tasks" (submit)="addNewTodo($event)">
+  <input type="text" placeholder="add details" [formControl]="todoInput" />
+  <button type="submit">Add</button>
+</form>

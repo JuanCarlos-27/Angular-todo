@@ -1,0 +1,15 @@
+<ul class="list-todos">
+  <li
+    class="todo"
+    *ngFor="let todo of todos()"
+    (click)="markTodoAsCompleted(todo)"
+  >
+    <input type="checkbox" [id]="todo.id" [checked]="todo.completed" />
+    <label
+      class="todo-description"
+      [ngClass]="{ completed: todo.completed }"
+      [for]="todo.id"
+      >{{ todo.description }}
+    </label>
+  </li>
+</ul>

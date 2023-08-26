@@ -1,0 +1,30 @@
+@use "../../../styles.scss" as *;
+
+.form-tasks {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+
+  input,
+  button {
+    padding: 1rem;
+    border-radius: 0.8rem;
+    outline: none;
+    font-size: 1.1rem;
+  }
+  input {
+    flex-grow: 3;
+    border: 2px solid #ccc;
+  }
+  button {
+    flex-grow: 1;
+    border: none;
+    background-color: $blue-color;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($blue-color, 10%);
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+}
