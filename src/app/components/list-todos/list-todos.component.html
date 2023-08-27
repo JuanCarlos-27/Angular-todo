@@ -1,15 +1,33 @@
 <ul class="list-todos">
-  <li
-    class="todo"
-    *ngFor="let todo of todos()"
-    (click)="markTodoAsCompleted(todo)"
-  >
-    <input type="checkbox" [id]="todo.id" [checked]="todo.completed" />
+  <li class="todo" *ngFor="let todo of getTodos()">
+    <input
+      type="checkbox"
+      [id]="todo.id"
+      [checked]="todo.completed"
+      (click)="markTodoAsCompleted(todo)"
+    />
     <label
+      (click)="markTodoAsCompleted(todo)"
       class="todo-description"
       [ngClass]="{ completed: todo.completed }"
       [for]="todo.id"
       >{{ todo.description }}
     </label>
+    <button
+      *ngIf="currentTab === 'Completed'"
+      type="button"
+      class="btn-delete-todo"
+      (click)="onDeleteTodoById(todo.id)"
+    >
+      <ic-delete />
+    </button>
   </li>
+  <button
+    *ngIf="currentTab === 'Completed'"
+    class="btn-delete-all"
+    (click)="onClearTodos()"
+  >
+    <ic-delete />
+    <span>Delete All</span>
+  </button>
 </ul>

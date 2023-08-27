@@ -2,6 +2,6 @@
   <h1 class="title">#todo</h1>
 
   <tab-wrapper />
-  <todo-input />
+  <todo-input *ngIf="currentTab !== 'Completed'" />
   <list-todos />
 </main>

@@ -1,4 +1,10 @@
 export default interface Tab {
-    title: string;
+    title: TabTitles;
     active: boolean;
+}
+
+export enum TabTitles {
+    All = 'All',
+    Active = 'Active',
+    Completed = 'Completed'
 }

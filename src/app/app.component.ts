@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
-import Tab from './interfaces/tab.interface';
-import { Todo } from './interfaces/todo.interface';
+import { Component, inject } from '@angular/core';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,11 @@ import { Todo } from './interfaces/todo.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  private todoService = inject(TodoService);
 
-  // public tabs: Tab[] = [
-  //   { title: 'All', active: false },
-  //   { title: 'Active', active: true },
-  //   { title: 'Completed', active: false }
-  // ]
-
-
+  get currentTab() {
+    const tab = this.todoService.currentTab()
+    return tab;
+  }
 
 }
