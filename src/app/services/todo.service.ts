@@ -22,8 +22,6 @@ export class TodoService {
 
   public currentTab = signal<TabTitles>(TabTitles.All);
 
-
-
   public get todos() {
     return this._todos
   }
@@ -57,6 +55,9 @@ export class TodoService {
   }
 
   clearTodos() {
-    this.todos.set([])
+    this.todos.update(current => {
+      const updatedTodos = current.filter(todo => !todo.completed)
+      return updatedTodos
+    })
   }
 }
